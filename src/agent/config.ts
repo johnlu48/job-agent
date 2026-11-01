@@ -1,0 +1,9 @@
+import type {AgentConfig} from './types.ts';
+export function agentConfig(env:NodeJS.ProcessEnv=process.env):AgentConfig{
+ if(!env.OPENAI_MODEL?.trim())throw Error('Set OPENAI_MODEL to a Responses API model that supports function calling');
+ const number=(key:string,fallback:number,min:number,max:number)=>{const n=env[key]===undefined?fallback:Number(env[key]);if(!Number.isFinite(n)||n<min||n>max)throw Error(`Invalid ${key}`);return n;};
+ if(!env.OPENAI_INPUT_USD_PER_MILLION||!env.OPENAI_OUTPUT_USD_PER_MILLION)throw Error('Set current model prices: OPENAI_INPUT_USD_PER_MILLION and OPENAI_OUTPUT_USD_PER_MILLION');
+ const integer=(key:string,fallback:number,min:number,max:number)=>{const n=number(key,fallback,min,max);if(!Number.isInteger(n))throw Error(`${key} must be an integer`);return n;};
+ const drafts=(env.AGENT_ALLOWED_DRAFT_URLS||'').split(',').filter(Boolean).map(s=>{const u=new URL(s.trim());if(u.protocol!=='https:'||u.username||u.password||u.hash)throw Error('Draft URLs must be exact trusted HTTPS URLs without credentials or fragments');return u.href;});
+ return {model:env.OPENAI_MODEL,maxSteps:integer('AGENT_MAX_STEPS',40,1,100),maxRepeatedActions:integer('AGENT_MAX_REPEATED_ACTIONS',2,1,5),maxTokens:integer('AGENT_MAX_TOKENS',120000,1000,1000000),maxUsd:number('AGENT_MAX_USD',1,0.001,100),maxOutputTokens:integer('AGENT_MAX_OUTPUT_TOKENS',1500,128,8192),inputUsdPerMillion:number('OPENAI_INPUT_USD_PER_MILLION',0,0.001,1000),outputUsdPerMillion:number('OPENAI_OUTPUT_USD_PER_MILLION',0,0.001,10000),minFitScore:number('AGENT_MIN_FIT_SCORE',50,0,100),screenshots:env.AGENT_SCREENSHOTS==='1',allowedOrigins:(env.AGENT_ALLOWED_ORIGINS||'').split(',').filter(Boolean).map(s=>new URL(s.trim()).origin),allowedDraftUrls:drafts,requireRobots:true,navigationLabels:['next','continue','back','previous','review','review application','save and continue']};
+}

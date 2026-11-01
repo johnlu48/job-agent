@@ -1,0 +1,20 @@
+import { readFileSync,existsSync } from 'node:fs';
+import { Store } from './core.ts';
+import { exportReport } from './report.ts';
+import {authorizeSubmission} from './submission.ts';
+const json=(p:string)=>JSON.parse(readFileSync(p,'utf8').replace(/^\uFEFF/,''));
+function requireLiveSubmission(jobId?:string,once=false){authorizeSubmission(json('config/submission.json'),jobId,once);}
+const [command,id,...args]=process.argv.slice(2);const store=new Store();
+try{
+ switch(command){
+ case 'agent-evaluate':case 'agent-apply':case 'agent-evidence':{const {agentCommand}=await import('./agent/commands.ts');await agentCommand(command,id,args,store);break;}
+ case 'discover':{const {discoverAll}=await import('./discovery.ts');const summary=await discoverAll(json('config/sources.json'),store);process.exitCode=summary.exitCode;break;}
+ case 'review':console.log(JSON.stringify(id?store.jobs().find(j=>j.id===id):store.jobs(),null,2));break;
+ case 'apply':{const job=store.jobs().find(j=>j.id===id);if(!job)throw Error('Job ID not found');let approvals:any={};try{approvals=json('config/approved.json');}catch{}const once=args.includes('--submit-once');const live=args.includes('--submit')||once;if(live)requireLiveSubmission(job.id,once);const {applyJob}=await import('./apply.ts');let profile={values:{},resumes:{}};try{profile=json('config/profile.json');}catch{if(approvals[id!])throw Error('Create config/profile.json from the example before filling forms');}let shared;if(!args.includes('--inspect')&&(args.includes('--shared')||!approvals[id!])&&existsSync('config/shared.json')){const policy=json('config/shared.json');if(policy.enabled||args.includes('--shared'))shared=policy;}console.log(await applyJob(job,store,profile,approvals[id!],live,{headless:args.includes('--headless'),shared,once}));break;}
+ case 'status':console.table(exportReport(store));break;
+ case 'start-search':{const flags=process.argv.slice(3);const dryRun=!flags.includes('--submit')||flags.includes('--dry-run');if(!dryRun)requireLiveSubmission();const {startSearch}=await import('./search.ts');const {discoverAll}=await import('./discovery.ts');const {applyJob}=await import('./apply.ts');const policy=json('config/shared.json');const profile=json('config/profile.json');console.log(dryRun?'Starting discovery and dry-run.':'Starting discovery and real applications (maximum 10 daily attempts).');console.log(JSON.stringify(await startSearch(store,policy,()=>discoverAll(json('config/sources.json'),store),(j,live)=>applyJob(j,store,profile,undefined,live,{headless:!flags.includes('--headed'),shared:policy}),dryRun),null,2));break;}
+ case 'batch':{const flags=process.argv.slice(3);const live=flags.includes('--submit');if(live)requireLiveSubmission();const {batch}=await import('./shared.ts');const {applyJob}=await import('./apply.ts');const policy=json('config/shared.json');const profile=json('config/profile.json');const limitIndex=flags.indexOf('--limit');const limit=limitIndex<0?10:Number(flags[limitIndex+1]);const results=await batch(store,policy,j=>applyJob(j,store,profile,undefined,live,{headless:flags.includes('--headless'),shared:policy}),limit);console.log(JSON.stringify(results,null,2));break;}
+ case 'login':{if(!id||!/^https:\/\//.test(id))throw Error('Provide an HTTPS login URL');const {chromium}=await import('playwright');const c=await chromium.launchPersistentContext('data/browser',{headless:false});const p=await c.newPage();await p.goto(id);console.log('Log in manually, then close the browser window.');await new Promise<void>(r=>c.on('close',()=>r()));break;}
+ default:console.log('Commands: agent-evidence | agent-evaluate <job-id> | agent-apply <job-id> [--headed] [--submit|--submit-once] | start-search [--dry-run] [--headed] | discover | review [job-id] | apply <job-id> [--inspect] [--shared] [--headless] [--submit|--submit-once] | batch [--limit 10] [--headless] [--submit] | status | login <https-url>');
+ }
+}catch(e){store.log('command_error','',String(e));console.error(String(e));process.exitCode=1;}finally{try{exportReport(store);}finally{store.close();}}

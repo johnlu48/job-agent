@@ -1,0 +1,87 @@
+{
+  "enabled": false,
+  "minScore": 40,
+  "allowMissingSalary": true,
+  "answers": [
+    {
+      "labels": [
+        "First Name"
+      ],
+      "value": "$firstName",
+      "approved": false
+    },
+    {
+      "labels": [
+        "Last Name"
+      ],
+      "value": "$lastName",
+      "approved": false
+    },
+    {
+      "labels": [
+        "Full name",
+        "Name"
+      ],
+      "value": "$fullName",
+      "approved": false
+    },
+    {
+      "labels": [
+        "Email",
+        "Email address"
+      ],
+      "value": "$email",
+      "approved": false
+    },
+    {
+      "labels": [
+        "Phone",
+        "Phone number"
+      ],
+      "value": "$phone",
+      "approved": false
+    },
+    {
+      "labels": [
+        "LinkedIn",
+        "LinkedIn Profile"
+      ],
+      "value": "$linkedIn",
+      "approved": false
+    }
+  ],
+  "adapters": [
+    {
+      "hosts": [
+        "boards.greenhouse.io",
+        "job-boards.greenhouse.io"
+      ],
+      "formSelector": "form",
+      "resumeSelector": "input#resume",
+      "submitSelector": "button[type=submit],input[type=submit]",
+      "confirmationSelector": "h1:has-text(\"Application submitted\"), h1:has-text(\"Thank you for applying\"), #application_confirmation",
+      "confirmationText": "",
+      "confirmationPattern": "^(?:application submitted[.!]?|your application has been (?:successfully )?submitted[.!]?|thank you for applying(?:[!.,].*| to .*)?)$"
+    },
+    {
+      "hosts": [
+        "jobs.lever.co"
+      ],
+      "formSelector": "form",
+      "resumeSelector": "input[type=file][name=resume]",
+      "submitSelector": "button[type=submit],input[type=submit]",
+      "confirmationSelector": ".application-confirmation",
+      "confirmationText": "Thank you"
+    },
+    {
+      "hosts": [
+        "jobs.ashbyhq.com"
+      ],
+      "formSelector": "form",
+      "resumeSelector": "input[type=file]",
+      "submitSelector": "button[type=submit]",
+      "confirmationSelector": "[role=status]",
+      "confirmationText": "Your application has been submitted"
+    }
+  ]
+}

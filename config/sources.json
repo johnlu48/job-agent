@@ -1,0 +1,273 @@
+[
+  {
+    "type": "remoteok",
+    "company": "Remote OK",
+    "verifiedUrl": "https://remoteok.com/api",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "arbeitnow",
+    "company": "Arbeitnow",
+    "enabled": false,
+    "reason": "Optional Europe-focused feed; enable to search explicitly US-eligible remote postings.",
+    "maxPages": 2,
+    "verifiedUrl": "https://www.arbeitnow.com/blog/job-board-api",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Cloudflare",
+    "board": "cloudflare",
+    "verifiedUrl": "https://job-boards.greenhouse.io/cloudflare",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Datadog",
+    "board": "datadog",
+    "verifiedUrl": "https://job-boards.greenhouse.io/datadog",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Databricks",
+    "board": "databricks",
+    "verifiedUrl": "https://job-boards.greenhouse.io/databricks",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "MongoDB",
+    "board": "mongodb",
+    "verifiedUrl": "https://job-boards.greenhouse.io/mongodb",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Cockroach Labs",
+    "board": "cockroachlabs",
+    "verifiedUrl": "https://job-boards.greenhouse.io/cockroachlabs",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Stripe",
+    "board": "stripe",
+    "verifiedUrl": "https://job-boards.greenhouse.io/stripe",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Figma",
+    "board": "figma",
+    "verifiedUrl": "https://job-boards.greenhouse.io/figma",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Reddit",
+    "board": "reddit",
+    "verifiedUrl": "https://job-boards.greenhouse.io/reddit",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Affirm",
+    "board": "affirm",
+    "verifiedUrl": "https://job-boards.greenhouse.io/affirm",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Discord",
+    "board": "discord",
+    "verifiedUrl": "https://job-boards.greenhouse.io/discord",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Roblox",
+    "board": "roblox",
+    "verifiedUrl": "https://job-boards.greenhouse.io/roblox",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Anthropic",
+    "board": "anthropic",
+    "verifiedUrl": "https://job-boards.greenhouse.io/anthropic",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Vercel",
+    "board": "vercel",
+    "verifiedUrl": "https://job-boards.greenhouse.io/vercel",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Scale AI",
+    "board": "scaleai",
+    "verifiedUrl": "https://job-boards.greenhouse.io/scaleai",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Elastic",
+    "board": "elastic",
+    "verifiedUrl": "https://job-boards.greenhouse.io/elastic",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "greenhouse",
+    "company": "Dropbox",
+    "board": "dropbox",
+    "verifiedUrl": "https://job-boards.greenhouse.io/dropbox",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "lever",
+    "company": "Palantir",
+    "board": "palantir",
+    "verifiedUrl": "https://jobs.lever.co/palantir",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "lever",
+    "company": "Zoox",
+    "board": "zoox",
+    "verifiedUrl": "https://jobs.lever.co/zoox",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "lever",
+    "company": "Spotify",
+    "board": "spotify",
+    "verifiedUrl": "https://jobs.lever.co/spotify",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "OpenAI",
+    "board": "openai",
+    "verifiedUrl": "https://jobs.ashbyhq.com/openai",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Ramp",
+    "board": "ramp",
+    "verifiedUrl": "https://jobs.ashbyhq.com/ramp",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Notion",
+    "board": "notion",
+    "verifiedUrl": "https://jobs.ashbyhq.com/notion",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Linear",
+    "board": "linear",
+    "verifiedUrl": "https://jobs.ashbyhq.com/linear",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Render",
+    "board": "render",
+    "verifiedUrl": "https://jobs.ashbyhq.com/render",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Supabase",
+    "board": "supabase",
+    "verifiedUrl": "https://jobs.ashbyhq.com/supabase",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Modal",
+    "board": "modal",
+    "verifiedUrl": "https://jobs.ashbyhq.com/modal",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Baseten",
+    "board": "baseten",
+    "verifiedUrl": "https://jobs.ashbyhq.com/baseten",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "LangChain",
+    "board": "langchain",
+    "verifiedUrl": "https://jobs.ashbyhq.com/langchain",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Cohere",
+    "board": "cohere",
+    "verifiedUrl": "https://jobs.ashbyhq.com/cohere",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Vanta",
+    "board": "vanta",
+    "verifiedUrl": "https://jobs.ashbyhq.com/vanta",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Deepgram",
+    "board": "deepgram",
+    "verifiedUrl": "https://jobs.ashbyhq.com/deepgram",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Perplexity",
+    "board": "perplexity",
+    "verifiedUrl": "https://jobs.ashbyhq.com/perplexity",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "ElevenLabs",
+    "board": "elevenlabs",
+    "verifiedUrl": "https://jobs.ashbyhq.com/elevenlabs",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "ashby",
+    "company": "Crusoe",
+    "board": "crusoe",
+    "verifiedUrl": "https://jobs.ashbyhq.com/crusoe",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "smartrecruiters",
+    "company": "Bosch",
+    "board": "BoschGroup",
+    "maxPages": 2,
+    "enabled": false,
+    "reason": "Optional public Posting API adapter. Public company page verified; enable after checking unauthenticated API reachability locally.",
+    "verifiedUrl": "https://careers.smartrecruiters.com/BoschGroup",
+    "verifiedAt": "2026-10-30"
+  },
+  {
+    "type": "lever",
+    "company": "Netflix",
+    "board": "netflix",
+    "enabled": false,
+    "reason": "Legacy Lever endpoint verified HTTP 404. Official Netflix site links to explore.jobs.netflix.net; dedicated verified adapter needed.",
+    "careersUrl": "https://explore.jobs.netflix.net/careers"
+  }
+]

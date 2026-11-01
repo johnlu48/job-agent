@@ -1,0 +1,42 @@
+node_modules/
+.npm-cache/
+.browsers/
+data/
+config/profile.json
+config/approved.json
+config/shared.json
+.env
+.env.*
+!.env.example
+resumes/*
+!resumes/.gitkeep
+
+# Credentials and local environment
+.env*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+credentials.json
+secrets.json
+
+# Build output, caches, and reports
+dist/
+build/
+coverage/
+.cache/
+playwright-report/
+test-results/
+*.tsbuildinfo
+*.log
+*.sqlite
+*.sqlite-*
+*.zip
+
+# Local editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

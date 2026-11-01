@@ -1,0 +1,5 @@
+{
+ "workflow":["discover","review"],
+ "dailyRunLimit":0,
+ "commandTimeoutSeconds":900
+}

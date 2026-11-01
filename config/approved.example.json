@@ -1,0 +1,12 @@
+{
+ "REPLACE_WITH_JOB_ID":{
+  "url":"https://example.com/exact-application-url",
+  "reviewed":false,
+  "formSelector":"form",
+  "fields":{"input[name=first_name]":"$firstName","input[name=email]":"$email"},
+  "resumeSelector":"input[type=file]",
+  "submitSelector":"button[type=submit]",
+  "confirmationSelector":".confirmation",
+  "confirmationText":"Your application has been received"
+ }
+}
